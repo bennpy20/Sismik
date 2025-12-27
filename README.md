@@ -1,20 +1,35 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Sismik – Sistem Manajemen Perkuliahan Pribadi
 
-# Run and deploy your AI Studio app
+**Sismik** adalah aplikasi *Sistem Manajemen Perkuliahan Pribadi* yang membantu mahasiswa dalam mengelola aktivitas akademik sehari-hari secara terpusat dan terstruktur. Aplikasi ini dirancang agar mudah digunakan untuk mencatat mata kuliah, jadwal, serta nilai perkuliahan.
 
-This contains everything you need to run your app locally.
+## ✨ Fitur Utama
 
-View your app in AI Studio: https://ai.studio/apps/drive/1CeEfmFXSywbAy9yDOBw_iwY50FLyRaCw
+- 🔐 **Login & Register**
+  - Autentikasi pengguna untuk keamanan data pribadi
+- 📊 **Dashboard**
+  - Ringkasan IPK, Total SKS, Sebaran Mata Kuliah, dan Grafik IPS
+- 📚 **Manajemen Mata Kuliah (CRUD)**
+  - Kelola data untuk setiap mata kuliah
+- 📝 **Manajemen Nilai Perkuliahan (CRUD)**
+  - Kelola nilai tugas, UTS, dan UAS untuk setiap mata kuliah
+- 🗓️ **Manajemen Jadwal Perkuliahan (CRUD)**
+  - Kelola jadwal perkuliahan tiap semester
 
-## Run Locally
+## 🚀 Menjalankan Aplikasi Secara Lokal
 
-**Prerequisites:**  Node.js
+### Prasyarat
+- Node.js
 
+### Langkah Instalasi
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Install seluruh dependensi:
+   ```bash
+   npm install
+
+2. Jalankan aplikasi:
+   ```bash
+   npm run dev
+
+3. Akses aplikasi melalui browser local:
+   ```bash
+   http://localhost:3000
