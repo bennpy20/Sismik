@@ -7,14 +7,39 @@ const initialData: AppData = {
   courses: [],
   grades: [],
   schedules: [],
-  semesters: [1, 2, 3, 4, 5, 6, 7, 8],
+  semesters: [1, 2, 3, 4, 5, 6, 7, 8, 101, 102, 103],
   notifications: []
 };
 
 export const loadData = (): AppData => {
   const stored = localStorage.getItem(STORAGE_KEY);
-  return stored ? JSON.parse(stored) : initialData;
+
+  if (!stored) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
+    return initialData;
+  }
+
+  const data: AppData = JSON.parse(stored);
+
+  // 🔥 AUTO-MIGRATION SEMESTER ANTARA
+  const requiredSemesters = [101, 102, 103];
+  let changed = false;
+
+  requiredSemesters.forEach(s => {
+    if (!data.semesters.includes(s)) {
+      data.semesters.push(s);
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    data.semesters.sort((a, b) => a - b);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  return data;
 };
+
 
 export const saveData = (data: AppData) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -58,6 +83,20 @@ export const addSemester = (num: number) => {
   }
   return false;
 };
+
+export const addSemesterAntara = () => {
+  const data = loadData();
+  const antaraCount = data.semesters.filter(s => s >= 100).length;
+  const nextAntara = 100 + antaraCount + 1;
+
+  if (!data.semesters.includes(nextAntara)) {
+    data.semesters.push(nextAntara);
+    data.semesters.sort((a, b) => a - b);
+    saveData(data);
+    notify(`Semester Antara ${nextAntara - 100} berhasil ditambahkan.`, 'success');
+  }
+};
+
 
 export const addCourse = (course: Course) => {
   const data = loadData();
