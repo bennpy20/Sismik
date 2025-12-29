@@ -33,3 +33,7 @@
 3. Akses aplikasi melalui browser local:
    ```bash
    http://localhost:3000
+
+### Link Website
+Website dapat diakses melalui tautan berikut:  
+**[https://sismik-9b769.firebaseapp.com](https://sismik-9b769.firebaseapp.com/)**
